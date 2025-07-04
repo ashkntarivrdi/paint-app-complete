@@ -1,0 +1,226 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  background: #282c34;
+  color: white;
+  padding: 10px 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative; /* Ensure proper positioning for the button container */
+}
+
+.header-buttons {
+  display: flex;
+  flex-direction: row; /* Align buttons horizontally */
+  position: absolute;
+  right: 2vw; /* Adjust as needed for spacing */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.header-buttons button,
+.header-buttons .import-label {
+  display: block;
+  padding: 0.5rem 1rem; /* Responsive padding */
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  background-color: #61dafb;
+  color: black;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.header-buttons button:hover,
+.header-buttons .import-label:hover {
+  background-color: #21a1f1; /* Slightly darker blue on hover */
+}
+
+.title-input {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  flex: 1; /* Allow the input to grow if needed */
+  max-width: 200px; /* Prevent it from becoming too large */
+  min-width: 150px; /* Prevent it from becoming too small */
+}
+
+.import-label {
+  background: #61dafb;
+  color: black;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 10vw;
+  max-width: 200px;
+  min-width: 120px;
+  background: #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.sidebar > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.shape-btn {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 8px;
+  cursor: grab;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.canvas {
+  flex: 1;
+  position: relative;
+  border: 1px solid #ccc;
+  margin: 10px;
+  overflow: hidden;
+}
+
+/* Shapes */
+.shape {
+  background: transparent;
+  position: absolute;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.shape-content {
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  background: transparent;
+}
+
+.shape.circle .shape-content {
+  border-radius: 50%;
+}
+
+.shape > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Sidebar previews */
+.sidebar-shape-preview {
+  border: 2px solid black;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.sidebar-shape-preview.circle {
+  border-radius: 50%;
+}
+
+/* Resize icon */
+.resize-handle {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  cursor: se-resize;
+  z-index: 10;
+}
+
+/* Bottom counter */
+.counter {
+  background: #fff;
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  font-size: 1rem;
+  display: flex; /* Use flexbox for counter items */
+  justify-content: center; /* Center items horizontally */
+  gap: 20px; /* Space between counter items */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.counter-item {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between shape preview and count number */
+}
+
+.counter-shape-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc; /* Add a slight border around the shape preview */
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 2px; /* Small padding inside the container */
+}
+
+.counter-shape-preview {
+  border: 1px solid black; /* Thinner border for small shapes */
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.counter-shape-preview.circle {
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column-reverse;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: none;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .canvas {
+    margin: 5px;
+    height: 60vh;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
