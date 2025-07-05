@@ -15,8 +15,8 @@ body {
   color: white;
   padding: 10px 2vw;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
   flex-wrap: wrap;
   position: relative; /* Ensure proper positioning for the button container */
 }
@@ -52,9 +52,12 @@ body {
 .title-input {
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
-  flex: 1; /* Allow the input to grow if needed */
-  max-width: 200px; /* Prevent it from becoming too large */
-  min-width: 150px; /* Prevent it from becoming too small */
+  text-align: center; /* Center text inside the input */
+  flex: none; /* Prevent the input from growing */
+  max-width: 300px; /* Adjust width as needed */
+  min-width: 200px; /* Prevent it from becoming too small */
+  margin: 0 auto; /* Center the input within the header */
+  transform: translateX(-150px); /* Move the input slightly to the left */
 }
 
 .import-label {
@@ -200,6 +203,12 @@ body {
 
 .counter-shape-preview.circle {
   border-radius: 50%;
+}
+
+.username-display {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 1rem;
 }
 
 @media (max-width: 768px) {
